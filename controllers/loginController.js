@@ -8,7 +8,7 @@ const login = async (req, res, next) => {
     const result = await loginService.login(email, password);
     if (!result.code) {
       return res.status(200).json({
-        token: jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' }),
+        token: `Bearer ${jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' })}`,
       });
     }
     return res.status(result.code).json({ message: result.message });

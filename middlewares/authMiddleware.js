@@ -7,7 +7,8 @@ const auth = async (req, res, next) => {
       return res.status(401).json({ message: 'Token not found' });
     }
     try {
-      const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
+      const token = authorization.split(' ');
+      const decoded = jwt.verify(token[1], process.env.JWT_SECRET);
       const decodedEmail = decoded.email;
 
       req.email = decodedEmail;

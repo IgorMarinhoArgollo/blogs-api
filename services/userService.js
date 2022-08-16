@@ -19,7 +19,7 @@ const post = async (displayName, email, password, image) => {
   }
 
   await userModel.post(displayName, email, password, image);
-  const token = { token: jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' }) };
+  const token = { token: `Bearer ${jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' })}` };
   return token;
 };
 
@@ -28,7 +28,7 @@ const getAll = async () => userModel.getAll();
 const userById = async (id) => {
   const userId = await userModel.userById(id);
   if (!userId) {
-    return { code: 404, message: 'User does not exist' };
+    return { code: 404, message: 'User does not exists' };
   }
   return userId;
 };
