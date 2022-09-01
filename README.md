@@ -11,11 +11,18 @@
    
 <details>
   <summary><h2>:brazil: Português</h2></summary>
-  O Projeto Blogs API foi desenvolvido com fins educacionais no módulo de Backend do Curso de Desenvolvimento Web Full Stack na Trybe. <br> Além da parcela do backend (desenvolvida em Node.js e ExpressJS) desse gerenciador de usuários e postagens em blog, o projeto conta com um bando de dados relacionais desenvolvido com o MySQL, populado com o Mapeamento Objeto Relacional (ORM), utiliando o Sequelize como ferramenta.<br><br>
+  O Projeto Blogs API foi desenvolvido com fins educacionais no módulo de Backend do Curso de Desenvolvimento Web Full Stack na Trybe. <br> Além da parcela do backend (desenvolvida em Node.js e ExpressJS com JavaScript), o projeto conta com um bando de dados relacionais desenvolvido com o MySQL, populado com o Mapeamento Objeto Relacional (ORM), utiliando o Sequelize como ferramenta.<br><br>
   
   ## Live Link
   <a href="https://talkermanager.herokuapp.com/api-docs/">Live/Documentação</a><br><br>
-   * Para testar os Endpoints protegidos, basta acessar o endpoint de login para obter o token e aplicar no botão "Authorization" a parte do token sem o "Bearer ".
+   * Para testar os Endpoints protegidos, basta acessar o endpoint de login para obter o token e aplicar no botão "Authorization" a parte do token sem o "Bearer ".<br><br>
+
+   ### Exemplo:
+    ```
+    {
+    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxld2lzaGFtaWx0b25AZ21haWwuY29tIiwiaWF0IjoxNjYyMDQ0MTg1LCJleHAiOjE2NjI2NDg5ODV9.jrMggE5ep8vn1QyJg5zqjTsGRZpYYfYYjoGrKpRYeMQ"
+    }
+    ```
   
   ## Objetivos
   * Elaborar o Backend de um gerenciador de blog;
@@ -53,7 +60,24 @@
   No terminal:
   
     git clone git@github.com:IgorMarinhoArgollo/blogs-api.git
-    
+       
+  ### Crie o arquivo .env na pasta talker-manager
+  Chaves que devem ser inseridas:
+  ```
+    ## SERVER VARS
+    NODE_ENV=development
+    API_PORT=3000
+
+    ## DATABASE VARS
+    MYSQL_HOST=localhost
+    MYSQL_PORT=3306
+    MYSQL_DB_NAME=blogs-api
+    MYSQL_USER=root
+    MYSQL_PASSWORD=12345678
+
+    ## SECRECT VARS
+    JWT_SECRET=suaSenhaSecreta
+  ```
     
   ### Rodar Localmente
   #### Requisitos:
@@ -124,11 +148,18 @@
   
   ##  
   ## :us: English
-  The Blogs API Project was developed for educational purposes in the Backend module of the Full Stack Web Development Course at Trybe. <br> In addition to the backend portion (developed in Node.js and ExpressJS) of this user and blog posts manager, the project has a relational database developed with MySQL, populated with Object Relational Mapping (ORM), using Sequelize as a tool.<br><br>
+  The Blogs API Project was developed for educational purposes in the Backend module of the Full Stack Web Development Course at Trybe. <br> In addition to the backend portion (developed in Node.js and ExpressJS with JavaScript), the project has a relational database developed with MySQL, populated with Object Relational Mapping (ORM), using Sequelize as a tool.<br><br>
 
 ## Live Link
 <a href="https://talkermanager.herokuapp.com/api-docs/">Live/Documents</a><br><br>
   * To test Protected Endpoints, just access the login endpoint to get the token and apply the part of the token without the "Bearer " in the "Authorization" button.
+     
+  ### Exemplo:
+    ```
+    {
+    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxld2lzaGFtaWx0b25AZ21haWwuY29tIiwiaWF0IjoxNjYyMDQ0MTg1LCJleHAiOjE2NjI2NDg5ODV9.jrMggE5ep8vn1QyJg5zqjTsGRZpYYfYYjoGrKpRYeMQ"
+    }
+    ```
 
 ## My Goals
 * Elaborate the Backend of a blog manager;
@@ -167,7 +198,24 @@
   
     git clone git@github.com:IgorMarinhoArgollo/blogs-api.git
     
-    
+  ### Create the .env file on talker-manager file
+  Keys that must be included:
+  ```
+    ## SERVER VARS
+    NODE_ENV=development
+    API_PORT=3000
+
+    ## DATABASE VARS
+    MYSQL_HOST=localhost
+    MYSQL_PORT=3306
+    MYSQL_DB_NAME=blogs-api
+    MYSQL_USER=root
+    MYSQL_PASSWORD=12345678
+
+    ## SECRECT VARS
+    JWT_SECRET=suaSenhaSecreta
+  ```
+
   ### Running Locally
   #### Requirements:
    * node.js
