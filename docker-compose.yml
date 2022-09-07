@@ -1,10 +1,53 @@
-version: "3"
+version: "3.9"
 
 services:
-  app:
+  node:
     build: .
-    command: sh -c "npm run database && npm run dev"
-    ports: 
-      - "3000:3000"
+    user: node
+    working_dir: /app
     volumes:
-      - .:/usr/app
+      - ./:/app
+    container_name: blogs_api
+    tty: true
+    stdin_open: true
+    command: bash -c "npm run database && npm run dev"
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - 3000:3000
+    environment:
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      HOSTNAME: $MYSQL_HOST
+      JWT_SECRET: $JWT_SECRET
+      MYSQL_DB_NAME: $MYSQL_DB_NAME
+      MYSQL_PORT: $MYSQL_PORT
+      NODE_ENV: $NODE_ENV
+      API_PORT: $API_PORT
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]
+      timeout: 10s
+      start_period: 30s
+      retries: 10
+
+  db:
+    container_name: blogs_api_db
+    image: mysql:8.0.21
+    platform: linux/x86_64
+    restart: always
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
+    cap_add:
+      - SYS_NICE
+
+networks:
+  default:
+    name: blogs_api_net

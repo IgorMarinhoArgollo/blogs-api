@@ -14,15 +14,7 @@
   O Projeto Blogs API foi desenvolvido com fins educacionais no módulo de Backend do Curso de Desenvolvimento Web Full Stack na Trybe. <br> Além da parcela do backend (desenvolvida em Node.js e ExpressJS com JavaScript), o projeto conta com um bando de dados relacionais desenvolvido com o MySQL, populado com o Mapeamento Objeto Relacional (ORM), utiliando o Sequelize como ferramenta.<br><br>
   
   ## Live Link
-  <a href="https://talkermanager.herokuapp.com/api-docs/">Live/Documentação</a><br><br>
-   * Para testar os Endpoints protegidos, basta acessar o endpoint de login para obter o token e aplicar no botão "Authorization" a parte do token sem o "Bearer ".<br><br>
-
-   ### Exemplo:
-    ```
-    {
-    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxld2lzaGFtaWx0b25AZ21haWwuY29tIiwiaWF0IjoxNjYyMDQ0MTg1LCJleHAiOjE2NjI2NDg5ODV9.jrMggE5ep8vn1QyJg5zqjTsGRZpYYfYYjoGrKpRYeMQ"
-    }
-    ```
+  * Localmente a aplicação está funcionando como deveria, entretanto, tendo em vista a não gratuidade do serviço de banco de dados do Heroku, a implementação do banco não foi realizada. Sendo assim, para testar a aplicação basta realizar os passos indicados na seção como rodar e testar a aplicação.
   
   ## Objetivos
   * Elaborar o Backend de um gerenciador de blog;
@@ -69,11 +61,11 @@
     API_PORT=3000
 
     ## DATABASE VARS
-    MYSQL_HOST=localhost
+    MYSQL_HOST=db (ao utilizar o MySQL local, trocar esse valour para: localhost)
     MYSQL_PORT=3306
     MYSQL_DB_NAME=blogs-api
-    MYSQL_USER=root
-    MYSQL_PASSWORD=12345678
+    MYSQL_USER=root (ao utilizar o MySQL localmente, trocar para o usuário local)
+    MYSQL_PASSWORD=12345678 (ao utilizar o MySQL localmente, trocar para a senha local)
 
     ## SECRECT VARS
     JWT_SECRET=suaSenhaSecreta
@@ -106,6 +98,21 @@
   
     docker-compose up
 
+
+  ## Testar rotas protegidas na documentação
+   1. Utilizar a rota login para obter o token
+   2. Copiar apenas a parte do JWT token e aplicar no botão Authorization na parte superior da documentação<br>
+   Exemplo do retorno do login:
+    ```
+    {
+    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8"
+    }
+    ```
+
+   Exemplo de inserção no Authorization:
+   ```
+   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8
+   ```
 
   ## Rotas
   Vide detalhes na documentação disponível na rota: 
@@ -151,15 +158,7 @@
   The Blogs API Project was developed for educational purposes in the Backend module of the Full Stack Web Development Course at Trybe. <br> In addition to the backend portion (developed in Node.js and ExpressJS with JavaScript), the project has a relational database developed with MySQL, populated with Object Relational Mapping (ORM), using Sequelize as a tool.<br><br>
 
 ## Live Link
-<a href="https://talkermanager.herokuapp.com/api-docs/">Live/Documents</a><br><br>
-  * To test Protected Endpoints, just access the login endpoint to get the token and apply the part of the token without the "Bearer " in the "Authorization" button.
-     
-  ### Exemplo:
-    ```
-    {
-    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxld2lzaGFtaWx0b25AZ21haWwuY29tIiwiaWF0IjoxNjYyMDQ0MTg1LCJleHAiOjE2NjI2NDg5ODV9.jrMggE5ep8vn1QyJg5zqjTsGRZpYYfYYjoGrKpRYeMQ"
-    }
-    ```
+* Locally the application is working as it should, however, due to the non-gratuity of the Heroku database service, the database implementation was not carried out. Therefore, to test the application, just follow the steps indicated in the section on how to run and test the application.
 
 ## My Goals
 * Elaborate the Backend of a blog manager;
@@ -206,11 +205,11 @@
     API_PORT=3000
 
     ## DATABASE VARS
-    MYSQL_HOST=localhost
+    MYSQL_HOST=db (if using MySQL locally, change to: localhost)
     MYSQL_PORT=3306
     MYSQL_DB_NAME=blogs-api
-    MYSQL_USER=root
-    MYSQL_PASSWORD=12345678
+    MYSQL_USER=root (if using MySQL locally, change to local user)
+    MYSQL_PASSWORD=12345678 (if using MySQL locally, change to local password)
 
     ## SECRECT VARS
     JWT_SECRET=suaSenhaSecreta
@@ -243,6 +242,20 @@
   
     docker-compose up
 
+  ## Testing protected routes on documentation
+   1. Use login route to get a token
+   2. Copy only the JWT token part and place it on Authorization button in the upper part of the page<br>
+   Example of login return:
+    ```
+    {
+    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8"
+    }
+   ```
+   
+   Example of what should be placed on Authorization:
+   ```
+   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8
+   ```
 
 ## Routes
   See more details on documentation available on route: 

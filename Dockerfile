@@ -1,7 +1,8 @@
-FROM node:14-alpine
+FROM node
 WORKDIR /
-COPY package*.json ./
+COPY package*.json /
 RUN npm install
-COPY . .
+COPY . ./
 EXPOSE 3000
-CMD npm run dev
+RUN apt-get update
+RUN apt-get install lsof
