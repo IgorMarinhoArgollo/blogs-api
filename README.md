@@ -302,7 +302,7 @@
   * DELETE /post/:id
   * GET /post/search?q=
   
-## Imagens das rotas
+## Routes Images
 ![1](./images/1.png)
 ![2](./images/2.png)
 ![3](./images/3.png)
